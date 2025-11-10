@@ -18,7 +18,7 @@ export function Navigation() {
           href="/"
           className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
         >
-          <Image src={'/logo.png'} width={50} height={50} alt="LOGO" />
+          <Image src={'/Logo.png'} width={50} height={50} alt="LOGO" />
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
