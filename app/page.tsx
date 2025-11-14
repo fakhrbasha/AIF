@@ -206,9 +206,6 @@ export default function HomeCreative() {
       <section className="max-w-7xl mx-auto px-6 py-12">
         <div className="flex items-center justify-between mb-6">
           <h3 className="text-lg font-semibold">Categories</h3>
-          <Link href="/categories" className="text-sm underline">
-            Browse all
-          </Link>
         </div>
         <div className="flex flex-wrap gap-3">
           {[
@@ -238,9 +235,6 @@ export default function HomeCreative() {
       <section className="max-w-7xl mx-auto px-6 py-12">
         <div className="flex items-center justify-between mb-6">
           <h3 className="text-lg font-semibold">Trending</h3>
-          <Link href="/trending" className="text-sm underline">
-            View all
-          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
