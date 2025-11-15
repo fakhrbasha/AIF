@@ -1,50 +1,35 @@
-'use client';
-
 import type React from 'react';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Almarai, Montserrat, Poppins } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
-import { useState, useEffect } from 'react';
 import './globals.css';
+import ThemeProvider from '@/components/theme-provider';
+import { Roboto } from 'next/font/google';
 
-const _geist = Geist({ subsets: ['latin'] });
-const _geistMono = Geist_Mono({ subsets: ['latin'] });
+export const metadata = {
+  title: 'AIF',
+  description: 'AIF For AI Tools',
+  icons: {
+    icon: '/Logo.png',
+    shortcut: '/Logo.ico',
+    apple: '/Logo.png',
+  },
+};
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
+});
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
-  const [isDark, setIsDark] = useState(true);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    const saved = localStorage.getItem('theme');
-    if (saved) {
-      setIsDark(saved === 'dark');
-    }
-  }, []);
-
-  useEffect(() => {
-    if (mounted) {
-      const html = document.documentElement;
-      if (isDark) {
-        html.classList.add('dark');
-      } else {
-        html.classList.remove('dark');
-      }
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    }
-  }, [isDark, mounted]);
-
-  if (!mounted) {
-    return null;
-  }
-
+}) {
   return (
-    <html lang="en" className={isDark ? 'dark' : ''}>
-      <body className={`font-sans antialiased ${_geist.className}`}>
-        {children}
+    <html lang="en">
+      <body className={montserrat.className}>
+        <ThemeProvider>{children}</ThemeProvider>
+
         <Analytics />
       </body>
     </html>
