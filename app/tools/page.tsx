@@ -141,25 +141,21 @@ export default function ToolsPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mb-8"
+          transition={{ delay: 0.6, duration: 0.6 }}
+          className="max-w-2xl mx-auto mb-12"
         >
-          <div className="relative max-w-2xl mx-auto">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
-            <Input
-              placeholder="Search for AI tools, features, or use cases..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 h-14 text-lg rounded-2xl border-2 focus:border-primary bg-card shadow-lg"
-            />
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery('')}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            )}
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-primary/20 rounded-2xl opacity-0 group-focus-within:opacity-100 blur-xl transition-opacity duration-500" />
+            <div className="relative flex items-center">
+              <Search className="absolute left-5 w-5 h-5 text-muted-foreground group-focus-within:text-primary transition-colors" />
+              <input
+                type="text"
+                placeholder="Search categories..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-14 pr-5 py-4 bg-card border-2 border-border focus:border-primary rounded-2xl outline-none transition-all duration-300 shadow-lg focus:shadow-xl focus:shadow-primary/10 text-foreground placeholder:text-muted-foreground"
+              />
+            </div>
           </div>
         </motion.div>
 

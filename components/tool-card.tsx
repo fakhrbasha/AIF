@@ -7,6 +7,7 @@ import type { AITool } from '@/lib/ai-tools';
 interface ToolCardProps {
   tool: AITool;
   index?: number;
+  viewMode?: string;
 }
 
 export function ToolCard({ tool, index = 0 }: ToolCardProps) {
