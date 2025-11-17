@@ -71,7 +71,7 @@ export default function ToolsPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-hidden">
       <Navigation />
 
       {/* Hero Section with Gradient */}
