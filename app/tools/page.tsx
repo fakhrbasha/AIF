@@ -20,16 +20,90 @@ import {
 
 const CATEGORIES = [
   'All',
-  'Text Generation',
-  'Image Generation',
-  'Productivity',
-  'Code Generation',
+  'Search & Research',
+  'Content Creation',
   'Video Generation',
+  'Audio Generation',
+  'Image Generation',
+  'Image Editing',
+  'Design Tools',
+  'Code Generation',
+  'Development Tools',
+  'Text Generation',
+  'Productivity',
+  'Transcription',
+  'Translation',
+  'Summarization',
+  'Research',
+  'Chatbots',
+  'Customer Service',
+  'Marketing Tools',
+  'Analytics',
+  'Data Analysis',
+  'Data Management',
+  'CRM',
+  'Marketing',
+  'Marketing Automation',
+  'Email Marketing',
+  'Social Media',
+  'SEO',
+  'Project Management',
+  'Writing Tools',
+  'Automation',
+  'AI Development',
+  'API Management',
+  'Backend Services',
+  'Security',
+  'DevOps',
+  'Testing',
+  'Document Management',
+  'Form Tools',
+  'Survey Tools',
+  'AI Models',
+  'Music Generation',
   'Video Editing',
+  'Video Recording',
+  'Audio Editing',
+  'Music Production',
+  'Music Distribution',
+  '3D Modeling',
+  'CAD',
+  'Game Development',
+  'Simulation',
+  'Electronics',
+  'Data Acquisition',
+  'Scientific Computing',
+  'Business Tools',
+  'Animation',
+  'Presentation',
+  'Publishing',
+  'Education',
+  'Health & Fitness',
+  'Travel',
+  'Real Estate',
+  'Legal',
+  'Food & Recipes',
+  'Fashion',
+  'Dating',
+  'Pet Care',
+  'Automotive',
+  'Insurance',
+  'News & Media',
+  'Sports',
+  'Gaming',
+  'Music',
+  'Entertainment',
+  'E-commerce',
+  'HR Tools',
+  'Finance',
+  'Data Privacy',
+  'AI Operations',
+  '3D & Modeling',
   'Search',
   'Content Generation',
   'Audio',
 ];
+
 const TYPES = ['All', 'Free', 'Paid', 'Trial'];
 
 export default function ToolsPage() {
@@ -38,6 +112,14 @@ export default function ToolsPage() {
   const [selectedType, setSelectedType] = useState('All');
   const [viewMode, setViewMode] = useState('grid');
   const [showFilters, setShowFilters] = useState(true);
+
+  // NEW STATE: show more categories
+  const [showMoreCategories, setShowMoreCategories] = useState(false);
+
+  // NEW: visible categories (first 20 only)
+  const visibleCategories = showMoreCategories
+    ? CATEGORIES
+    : CATEGORIES.slice(0, 20);
 
   const filteredTools = useMemo(() => {
     return AI_TOOLS.filter((tool) => {
@@ -74,7 +156,7 @@ export default function ToolsPage() {
     <div className="min-h-screen bg-background overflow-hidden">
       <Navigation />
 
-      {/* Hero Section with Gradient */}
+      {/* Hero Section */}
       <div className="relative overflow-hidden border-b border-border">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-purple-500/5 to-background pointer-events-none" />
         <div
@@ -110,28 +192,6 @@ export default function ToolsPage() {
               Search and filter from our curated collection of the best AI tools
               to supercharge your workflow
             </p>
-
-            {/* Stats */}
-            <div className="flex flex-wrap justify-center gap-8 mt-10">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-1">
-                  {AI_TOOLS.length}+
-                </div>
-                <div className="text-sm text-muted-foreground">AI Tools</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-1">
-                  {CATEGORIES.length - 1}
-                </div>
-                <div className="text-sm text-muted-foreground">Categories</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-1">
-                  Daily
-                </div>
-                <div className="text-sm text-muted-foreground">Updates</div>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>
@@ -159,7 +219,7 @@ export default function ToolsPage() {
           </div>
         </motion.div>
 
-        {/* Filter Controls */}
+        {/* Filters */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -222,7 +282,7 @@ export default function ToolsPage() {
               className="mb-12 overflow-hidden"
             >
               <div className="bg-card border border-border rounded-2xl p-8 space-y-8">
-                {/* Category Filter */}
+                {/* Categories Filter */}
                 <div>
                   <div className="flex items-center gap-2 mb-4">
                     <h3 className="font-semibold text-lg">Categories</h3>
@@ -233,8 +293,10 @@ export default function ToolsPage() {
                       tools)
                     </span>
                   </div>
+
+                  {/* FIRST 20 ONLY */}
                   <div className="flex flex-wrap gap-2">
-                    {CATEGORIES.map((category) => {
+                    {visibleCategories.map((category) => {
                       const stat = categoryStats.find(
                         (c) => c.name === category
                       );
@@ -272,9 +334,24 @@ export default function ToolsPage() {
                       );
                     })}
                   </div>
+
+                  {/* SHOW MORE BUTTON */}
+                  {CATEGORIES.length > 20 && (
+                    <div className="mt-4">
+                      <Button
+                        variant="ghost"
+                        className="text-primary"
+                        onClick={() =>
+                          setShowMoreCategories(!showMoreCategories)
+                        }
+                      >
+                        {showMoreCategories ? 'Show Less' : 'Show More'}
+                      </Button>
+                    </div>
+                  )}
                 </div>
 
-                {/* Type Filter */}
+                {/* Pricing Filter */}
                 <div>
                   <h3 className="font-semibold text-lg mb-4">Pricing</h3>
                   <div className="flex flex-wrap gap-2">
@@ -331,7 +408,7 @@ export default function ToolsPage() {
           </div>
         </motion.div>
 
-        {/* Results Grid/List */}
+        {/* Results */}
         {filteredTools.length > 0 ? (
           <motion.div
             layout

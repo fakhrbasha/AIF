@@ -74,6 +74,7 @@ export function Navigation() {
       ],
     },
     { href: '/blogs', label: 'Blogs' },
+    { href: '/category', label: 'Category' },
     { href: '/contact', label: 'Contact' },
   ];
 
