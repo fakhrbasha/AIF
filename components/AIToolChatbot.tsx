@@ -12,10 +12,10 @@ import {
 import { AI_TOOLS } from '@/lib/ai-tools';
 
 const EXAMPLE_QUESTIONS = [
-  'I need help writing code',
-  'Create images from text',
-  'Improve my writing',
-  'AI for productivity',
+  'Coding',
+  'Image Generation',
+  'writing',
+  'Productivity',
 ];
 
 export default function AIToolChatbot() {

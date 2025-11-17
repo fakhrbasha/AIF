@@ -10,6 +10,7 @@ import { ToolCard } from '@/components/tool-card';
 import { Button } from '@/components/ui/button';
 import { AI_TOOLS } from '@/lib/ai-tools';
 import AIToolChatbot from '@/components/AIToolChatbot';
+import ChatbotWidget from '@/components/chat';
 
 const FEATURED_TOOLS = AI_TOOLS.slice(0, 6);
 
@@ -548,7 +549,9 @@ export default function HomeCreative() {
           ))}
         </motion.div>
       </section>
-      <AIToolChatbot />
+      {/* <AIToolChatbot /> */}
+      <ChatbotWidget />
+
       <Footer />
     </div>
   );

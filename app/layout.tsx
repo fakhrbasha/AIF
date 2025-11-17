@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 import ThemeProvider from '@/components/theme-provider';
 import { Roboto } from 'next/font/google';
+import Script from 'next/script';
 
 export const metadata = {
   title: 'AIF',
@@ -31,6 +32,21 @@ export default function RootLayout({
         <ThemeProvider>{children}</ThemeProvider>
 
         <Analytics />
+
+        {/* ===== Chatbase Chatbot Script ===== */}
+        <Script id="chatbase-config" strategy="afterInteractive">
+          {`
+    window.chatbaseConfig = {
+      chatbotId: "u3vih1s7o4nmncue0ua3muuq7h8biozp",
+    };
+  `}
+        </Script>
+
+        <Script
+          src="https://www.chatbase.co/embed.min.js"
+          id="chatbase-script"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
