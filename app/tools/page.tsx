@@ -1,12 +1,6 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { Navigation } from '@/components/navigation';
-import { Footer } from '@/components/footer';
-import { ToolCard } from '@/components/tool-card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { AI_TOOLS } from '@/lib/ai-tools';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Search,
@@ -16,7 +10,13 @@ import {
   Grid3x3,
   List,
   TrendingUp,
+  ExternalLink,
 } from 'lucide-react';
+import { AI_TOOLS } from '@/lib/ai-tools';
+import { Navigation } from '@/components/navigation';
+import { Footer } from '@/components/footer';
+
+// Mock data - replace with your actual AI_TOOLS data
 
 const CATEGORIES = [
   'All',
@@ -103,7 +103,6 @@ const CATEGORIES = [
   'Content Generation',
   'Audio',
 ];
-
 const TYPES = ['All', 'Free', 'Paid', 'Trial'];
 
 export default function ToolsPage() {
@@ -112,11 +111,8 @@ export default function ToolsPage() {
   const [selectedType, setSelectedType] = useState('All');
   const [viewMode, setViewMode] = useState('grid');
   const [showFilters, setShowFilters] = useState(true);
-
-  // NEW STATE: show more categories
   const [showMoreCategories, setShowMoreCategories] = useState(false);
 
-  // NEW: visible categories (first 20 only)
   const visibleCategories = showMoreCategories
     ? CATEGORIES
     : CATEGORIES.slice(0, 20);
@@ -153,18 +149,11 @@ export default function ToolsPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background overflow-hidden">
+    <div className="min-h-screen bg-background">
       <Navigation />
-
       {/* Hero Section */}
       <div className="relative overflow-hidden border-b border-border">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-purple-500/5 to-background pointer-events-none" />
-        <div
-          className="absolute inset-0 bg-grid-white/5 pointer-events-none"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
-        />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative">
           <motion.div
@@ -181,14 +170,14 @@ export default function ToolsPage() {
             >
               <Sparkles className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-primary">
-                200+ AI Tools
+                {AI_TOOLS.length}+ AI Tools
               </span>
             </motion.div>
 
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">
               Discover AI Tools
             </h1>
-            <p className="text-xl text-muted-foreground mb-8">
+            <p className="text-xl text-gray-600 mb-8">
               Search and filter from our curated collection of the best AI tools
               to supercharge your workflow
             </p>
@@ -197,77 +186,78 @@ export default function ToolsPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Search Bar */}
+        {/* Search Bar - FIXED PLACEHOLDER */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.6 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
           className="max-w-2xl mx-auto mb-12"
         >
           <div className="relative group">
-            <div className="absolute -inset-1 bg-primary/20 rounded-2xl opacity-0 group-focus-within:opacity-100 blur-xl transition-opacity duration-500" />
             <div className="relative flex items-center">
-              <Search className="absolute left-5 w-5 h-5 text-muted-foreground group-focus-within:text-primary transition-colors" />
+              <Search className="absolute left-5 w-5 h-5 text-gray-400" />
               <input
                 type="text"
-                placeholder="Search categories..."
+                placeholder="Search tools by name or description..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-14 pr-5 py-4 bg-card border-2 border-border focus:border-primary rounded-2xl outline-none transition-all duration-300 shadow-lg focus:shadow-xl focus:shadow-primary/10 text-foreground placeholder:text-muted-foreground"
+                className="w-full pl-14 pr-5 py-4 bg-white border-2 border-gray-200 focus:border-primary rounded-2xl outline-none transition-all duration-300 shadow-lg"
               />
             </div>
           </div>
         </motion.div>
 
-        {/* Filters */}
+        {/* Filters Toggle */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
           className="mb-8 flex items-center justify-between flex-wrap gap-4"
         >
           <div className="flex items-center gap-3">
-            <Button
-              variant="outline"
+            <button
               onClick={() => setShowFilters(!showFilters)}
-              className="rounded-xl"
+              className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-xl hover:bg-gray-50"
             >
-              <Filter className="w-4 h-4 mr-2" />
+              <Filter className="w-4 h-4" />
               {showFilters ? 'Hide' : 'Show'} Filters
-            </Button>
+            </button>
 
             {hasActiveFilters && (
               <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }}>
-                <Button
-                  variant="ghost"
+                <button
                   onClick={resetFilters}
-                  className="rounded-xl text-primary hover:text-primary hover:bg-primary/10"
+                  className="flex items-center gap-2 px-4 py-2 text-primary hover:bg-primaryrounded-xl"
                 >
-                  <X className="w-4 h-4 mr-2" />
+                  <X className="w-4 h-4" />
                   Clear All
-                </Button>
+                </button>
               </motion.div>
             )}
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-sm text-muted-foreground mr-2">View:</span>
-            <Button
-              variant={viewMode === 'grid' ? 'default' : 'outline'}
-              size="sm"
+            <span className="text-sm text-gray-500 mr-2">View:</span>
+            <button
               onClick={() => setViewMode('grid')}
-              className="rounded-lg"
+              className={`p-2 rounded-lg ${
+                viewMode === 'grid'
+                  ? 'bg-primary text-white'
+                  : 'border border-gray-300'
+              }`}
             >
               <Grid3x3 className="w-4 h-4" />
-            </Button>
-            <Button
-              variant={viewMode === 'list' ? 'default' : 'outline'}
-              size="sm"
+            </button>
+            <button
               onClick={() => setViewMode('list')}
-              className="rounded-lg"
+              className={`p-2 rounded-lg ${
+                viewMode === 'list'
+                  ? 'bg-primary text-white'
+                  : 'border border-gray-300'
+              }`}
             >
               <List className="w-4 h-4" />
-            </Button>
+            </button>
           </div>
         </motion.div>
 
@@ -281,12 +271,12 @@ export default function ToolsPage() {
               transition={{ duration: 0.3 }}
               className="mb-12 overflow-hidden"
             >
-              <div className="bg-card border border-border rounded-2xl p-8 space-y-8">
+              <div className="bg-white border border-gray-200 rounded-2xl p-8 space-y-8">
                 {/* Categories Filter */}
                 <div>
                   <div className="flex items-center gap-2 mb-4">
                     <h3 className="font-semibold text-lg">Categories</h3>
-                    <span className="text-xs text-muted-foreground">
+                    <span className="text-xs text-gray-500">
                       (
                       {categoryStats.find((c) => c.name === selectedCategory)
                         ?.count || AI_TOOLS.length}{' '}
@@ -294,59 +284,40 @@ export default function ToolsPage() {
                     </span>
                   </div>
 
-                  {/* FIRST 20 ONLY */}
                   <div className="flex flex-wrap gap-2">
                     {visibleCategories.map((category) => {
                       const stat = categoryStats.find(
                         (c) => c.name === category
                       );
                       return (
-                        <motion.div
+                        <button
                           key={category}
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
+                          onClick={() => setSelectedCategory(category)}
+                          className={`px-4 py-2 rounded-full transition-all ${
+                            selectedCategory === category
+                              ? 'bg-primary text-white shadow-lg'
+                              : 'border border-gray-300 hover:border-primary'
+                          }`}
                         >
-                          <Button
-                            variant={
-                              selectedCategory === category
-                                ? 'default'
-                                : 'outline'
-                            }
-                            onClick={() => setSelectedCategory(category)}
-                            className={`rounded-full ${
-                              selectedCategory === category
-                                ? 'shadow-lg shadow-primary/25'
-                                : ''
-                            }`}
-                          >
-                            {category}
-                            <span
-                              className={`ml-2 text-xs ${
-                                selectedCategory === category
-                                  ? 'opacity-80'
-                                  : 'opacity-50'
-                              }`}
-                            >
-                              {stat?.count}
-                            </span>
-                          </Button>
-                        </motion.div>
+                          {category}
+                          <span className="ml-2 text-xs opacity-70">
+                            {stat?.count}
+                          </span>
+                        </button>
                       );
                     })}
                   </div>
 
-                  {/* SHOW MORE BUTTON */}
                   {CATEGORIES.length > 20 && (
                     <div className="mt-4">
-                      <Button
-                        variant="ghost"
-                        className="text-primary"
+                      <button
                         onClick={() =>
                           setShowMoreCategories(!showMoreCategories)
                         }
+                        className="text-primary hover:underline"
                       >
                         {showMoreCategories ? 'Show Less' : 'Show More'}
-                      </Button>
+                      </button>
                     </div>
                   )}
                 </div>
@@ -356,25 +327,17 @@ export default function ToolsPage() {
                   <h3 className="font-semibold text-lg mb-4">Pricing</h3>
                   <div className="flex flex-wrap gap-2">
                     {TYPES.map((type) => (
-                      <motion.div
+                      <button
                         key={type}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                        onClick={() => setSelectedType(type)}
+                        className={`px-4 py-2 rounded-full transition-all ${
+                          selectedType === type
+                            ? 'bg-primary text-white shadow-lg'
+                            : 'border border-gray-300 hover:border-primary'
+                        }`}
                       >
-                        <Button
-                          variant={
-                            selectedType === type ? 'default' : 'outline'
-                          }
-                          onClick={() => setSelectedType(type)}
-                          className={`rounded-full ${
-                            selectedType === type
-                              ? 'shadow-lg shadow-primary/25'
-                              : ''
-                          }`}
-                        >
-                          {type}
-                        </Button>
-                      </motion.div>
+                        {type}
+                      </button>
                     ))}
                   </div>
                 </div>
@@ -387,52 +350,57 @@ export default function ToolsPage() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-          className="flex items-center justify-between mb-6"
+          transition={{ delay: 0.5 }}
+          className="flex items-center gap-3 mb-6"
         >
-          <div className="flex items-center gap-3">
-            <TrendingUp className="w-5 h-5 text-primary" />
-            <p className="text-sm font-medium">
-              Showing{' '}
-              <span className="text-primary font-bold">
-                {filteredTools.length}
-              </span>{' '}
-              tool{filteredTools.length !== 1 ? 's' : ''}
-              {hasActiveFilters && (
-                <span className="text-muted-foreground">
-                  {' '}
-                  matching your filters
-                </span>
-              )}
-            </p>
-          </div>
+          <TrendingUp className="w-5 h-5 text-primary" />
+          <p className="text-sm font-medium">
+            Showing{' '}
+            <span className="text-primary font-bold">
+              {filteredTools.length}
+            </span>{' '}
+            tool
+            {filteredTools.length !== 1 ? 's' : ''}
+            {hasActiveFilters && (
+              <span className="text-gray-500"> matching your filters</span>
+            )}
+          </p>
         </motion.div>
 
         {/* Results */}
         {filteredTools.length > 0 ? (
-          <motion.div
-            layout
+          <div
             className={
               viewMode === 'grid'
-                ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'
+                ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'
                 : 'space-y-4'
             }
           >
-            <AnimatePresence mode="popLayout">
-              {filteredTools.map((tool, index) => (
-                <motion.div
-                  key={tool.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3, delay: index * 0.02 }}
+            {filteredTools.map((tool) => (
+              <motion.div
+                key={tool.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-shadow"
+              >
+                <h3 className="text-xl font-bold mb-2">{tool.name}</h3>
+                <p className="text-gray-600 mb-4">{tool.description}</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm px-3 py-1 bg-primary text-white rounded-full">
+                    {tool.category}
+                  </span>
+                  <span className="text-sm text-gray-500">{tool.type}</span>
+                </div>
+                <a
+                  href={tool.website}
+                  className="mt-4 flex items-center gap-2 text-primary hover:text-primary"
                 >
-                  <ToolCard tool={tool} index={index} viewMode={viewMode} />
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
+                  Visit <ExternalLink className="w-4 h-4" />
+                </a>
+              </motion.div>
+            ))}
+          </div>
         ) : (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -440,27 +408,25 @@ export default function ToolsPage() {
             className="text-center py-20"
           >
             <div className="max-w-md mx-auto">
-              <div className="w-20 h-20 rounded-full bg-muted flex items-center justify-center mx-auto mb-6">
-                <Search className="w-10 h-10 text-muted-foreground" />
+              <div className="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-6">
+                <Search className="w-10 h-10 text-gray-400" />
               </div>
               <h3 className="text-2xl font-bold mb-3">No tools found</h3>
-              <p className="text-muted-foreground mb-8">
+              <p className="text-gray-600 mb-8">
                 We couldn't find any tools matching your criteria. Try adjusting
                 your filters or search query.
               </p>
-              <Button
+              <button
                 onClick={resetFilters}
-                size="lg"
-                className="rounded-xl shadow-lg shadow-primary/25"
+                className="px-6 py-3 bg-primary text-white rounded-xl shadow-lg hover:bg-primary flex items-center gap-2 mx-auto"
               >
-                <X className="w-4 h-4 mr-2" />
+                <X className="w-4 h-4" />
                 Reset All Filters
-              </Button>
+              </button>
             </div>
           </motion.div>
         )}
       </div>
-
       <Footer />
     </div>
   );
