@@ -388,7 +388,7 @@ export const AI_TOOLS: AITool[] = [
     description: "SEO and marketing analytics platform with AI",
     type: "Paid",
     logo: "📈",
-    category: "Marketing Tools",
+    category: "Marketing",
     website: "https://semrush.com",
   },
   {
@@ -397,7 +397,7 @@ export const AI_TOOLS: AITool[] = [
     description: "SEO tools with AI-powered insights",
     type: "Paid",
     logo: "🔗",
-    category: "Marketing Tools",
+    category: "Marketing",
     website: "https://ahrefs.com",
   },
   {
@@ -406,7 +406,7 @@ export const AI_TOOLS: AITool[] = [
     description: "AI content optimization for search",
     type: "Paid",
     logo: "🌊",
-    category: "Marketing Tools",
+    category: "Marketing",
     website: "https://surferseo.com",
   },
   {
@@ -415,7 +415,7 @@ export const AI_TOOLS: AITool[] = [
     description: "AI-powered content optimization platform",
     type: "Paid",
     logo: "💡",
-    category: "Marketing Tools",
+    category: "Marketing",
     website: "https://clearscope.io",
   },
 
@@ -4693,7 +4693,7 @@ export const AI_TOOLS: AITool[] = [
     description: "Advanced AI content editor with natural language processing optimization that helps create SEO-optimized content. Features semantic SEO analysis, competitor content comparison, NLP term suggestions, SERP analysis, content planning, and integrations with WordPress and Google Search Console.",
     type: "Paid",
     logo: "🧠",
-    category: "Marketing Tools",
+    category: "Marketing",
     website: "https://neuronwriter.com",
   },
   {
@@ -4702,7 +4702,7 @@ export const AI_TOOLS: AITool[] = [
     description: "Comprehensive AI-powered SEO and content marketing platform for planning, creating, and optimizing content at scale. Features keyword research, content clusters, AI writing, SEO optimization, competitive analysis, and workflow management for content teams and agencies.",
     type: "Paid",
     logo: "🌰",
-    category: "Marketing Tools",
+    category: "Marketing",
     website: "https://scalenut.com",
   },
   {
@@ -4711,7 +4711,7 @@ export const AI_TOOLS: AITool[] = [
     description: "All-in-one AI writing and SEO tool designed for bloggers, content teams, and agencies. Features AI blog post writer, keyword research, competitor analysis, backlink tracking, and Chrome extension for quick SEO insights while browsing, helping create rank-worthy content faster.",
     type: "Paid",
     logo: "📊",
-    category: "Marketing Tools",
+    category: "Marketing",
     website: "https://growthbarseo.com",
   },
   {
@@ -4720,7 +4720,7 @@ export const AI_TOOLS: AITool[] = [
     description: "AI-powered content writer by Semrush that creates SEO-optimized articles, blog posts, and web copy. Combines Semrush's SEO data with AI writing to produce content that ranks well in search engines, with built-in optimization suggestions and performance tracking.",
     type: "Paid",
     logo: "🔀",
-    category: "Marketing Tools",
+    category: "Marketing",
     website: "https://contentshake.com",
   },
 
@@ -5503,14 +5503,14 @@ export const AI_TOOLS: AITool[] = [
     website: "https://magical.so",
   },
 
-  // Additional Marketing Tools
+  // Additional Marketing
   {
     id: "copy-ai-advanced",
     name: "Copy.ai Pro",
     description: "Advanced AI copywriting platform with workflow automation and team collaboration. Features long-form content, brand voice customization, SEO optimization, and 90+ templates for comprehensive content marketing.",
     type: "Paid",
     logo: "✍️",
-    category: "Marketing Tools",
+    category: "Marketing",
     website: "https://copy.ai/pro",
   },
   {
@@ -5519,7 +5519,7 @@ export const AI_TOOLS: AITool[] = [
     description: "LinkedIn AI tool for growing personal brand with content creation, scheduling, and analytics. Features AI post generator, viral post inspiration, lead database, and engagement tools for LinkedIn growth.",
     type: "Paid",
     logo: "💼",
-    category: "Marketing Tools",
+    category: "Marketing",
     website: "https://taplio.com",
   },
   {
@@ -5528,7 +5528,7 @@ export const AI_TOOLS: AITool[] = [
     description: "Twitter/X growth tool with AI-powered tweet writing, scheduling, and analytics. Features auto-retweets, email list building from followers, engagement tracking, and inspiration from viral tweets.",
     type: "Paid",
     logo: "🔥",
-    category: "Marketing Tools",
+    category: "Marketing",
     website: "https://hypefury.com",
   },
   {
@@ -5537,7 +5537,7 @@ export const AI_TOOLS: AITool[] = [
     description: "AI-powered Twitter tool for writing viral tweets, scheduling content, and growing your audience. Features AI ghostwriter trained on viral content, scheduling, and growth tools for personal brands and businesses.",
     type: "Paid",
     logo: "🐦",
-    category: "Marketing Tools",
+    category: "Marketing",
     website: "https://postwise.ai",
   },
   {
@@ -5546,7 +5546,7 @@ export const AI_TOOLS: AITool[] = [
     description: "AI content detection and humanization tool that makes AI-generated content undetectable. Perfect for content creators ensuring their AI-assisted writing passes detection tools while maintaining quality and authenticity.",
     type: "Paid",
     logo: "🌊",
-    category: "Marketing Tools",
+    category: "Marketing",
     website: "https://writesea.ai",
   },
 

@@ -276,7 +276,7 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <span>© {currentYear} AIFinder.</span>
-              <span>Made with</span>
+              <span>Made with Fakhr</span>
               <motion.div
                 animate={{
                   scale: [1, 1.2, 1],
@@ -286,31 +286,8 @@ export function Footer() {
                   repeat: Infinity,
                   ease: 'easeInOut',
                 }}
-              >
-                <Heart className="w-4 h-4 text-red-500 fill-red-500" />
-              </motion.div>
+              ></motion.div>
               <span>for AI enthusiasts</span>
-            </div>
-
-            <div className="flex items-center gap-6 text-sm">
-              <Link
-                href="#"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                Status
-              </Link>
-              <Link
-                href="#"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                Sitemap
-              </Link>
-              <Link
-                href="#"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                RSS Feed
-              </Link>
             </div>
           </div>
         </motion.div>

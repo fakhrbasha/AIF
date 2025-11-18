@@ -22,6 +22,49 @@ export default function HomeCreative() {
     if (!theme) setTheme('dark');
   }, [theme, setTheme]);
 
+  const categories = [
+    {
+      name: 'Image Generation',
+      count: 48,
+      description: 'AI-powered image generation and editing tools',
+    },
+    {
+      name: 'Chatbot',
+      count: 6,
+      description: 'Conversational AI and chatbot solutions',
+    },
+    {
+      name: 'Code Generation',
+      count: 22,
+      description: 'Code generation and development assistants',
+    },
+    {
+      name: 'Video',
+      count: 40,
+      description: 'Video creation and editing with AI',
+    },
+    {
+      name: 'Audio',
+      count: 34,
+      description: 'Voice synthesis and audio processing',
+    },
+    {
+      name: 'Marketing',
+      count: 18,
+      description: 'Marketing automation and content tools',
+    },
+    {
+      name: 'Analytics',
+      count: 5,
+      description: 'Data analysis and business intelligence',
+    },
+    {
+      name: 'Design',
+      count: 21,
+      description: 'UI/UX and graphic design assistants',
+    },
+  ];
+
   // Interactive parallax for hero
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -367,50 +410,59 @@ export default function HomeCreative() {
       </section>
 
       {/* Categories */}
-      <section className="max-w-7xl mx-auto px-6 py-16">
-        <div className="mb-10">
-          <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
+
+      <section className="max-w-7xl mx-auto px-6 py-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-14"
+        >
+          <h3 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Browse by Category
           </h3>
-          <p className="text-lg text-muted-foreground">
-            Find the perfect tool for your needs
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Explore our curated collection of AI tools across different
+            categories
           </p>
-        </div>
+        </motion.div>
 
         <motion.div
-          className="flex flex-wrap gap-3"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
           variants={{
             show: {
               transition: {
-                staggerChildren: 0.05,
+                staggerChildren: 0.06,
               },
             },
           }}
         >
-          {[
-            'Image',
-            'Chat',
-            'Code',
-            'Video',
-            'Audio',
-            'Marketing',
-            'Analytics',
-            'Design',
-          ].map((c) => (
+          {categories.map((category) => (
             <motion.button
-              key={c}
+              key={category.name}
               variants={{
-                hidden: { opacity: 0, scale: 0.9 },
-                show: { opacity: 1, scale: 1 },
+                hidden: { opacity: 0, y: 20 },
+                show: { opacity: 1, y: 0 },
               }}
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 rounded-full text-sm font-semibold bg-accent hover:bg-accent/80 border border-border transition-all"
+              whileHover={{ y: -4 }}
+              whileTap={{ scale: 0.98 }}
+              className="text-left p-6 rounded-xl bg-card hover:bg-accent border border-border hover:border-primary/50 transition-all duration-300"
             >
-              {c}
+              <div className="flex items-center justify-between mb-3">
+                <h4 className="text-lg font-bold text-foreground">
+                  {category.name}
+                </h4>
+                <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold">
+                  {category.count}
+                </span>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {category.description}
+              </p>
             </motion.button>
           ))}
         </motion.div>
