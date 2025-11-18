@@ -5627,4 +5627,88 @@ export const AI_TOOLS: AITool[] = [
     category: "E-commerce",
     website: "https://oxolo.com",
   },
+  {
+    id: "ace",
+    name: "Ace",
+    description: "Realtime Computer Autopilot",
+    type: "Free",
+    logo: "⚡",
+    category: "Productivity",
+    website: "https://ace.design",
+  }
+  , {
+    id: "emergent",
+    name: "Emergent",
+    description: "AI-powered vibe-coding platform that builds full-stack, production-ready apps from plain English prompts — frontend, backend, auth, database, and deployment all handled automatically.",
+    type: "Free",
+    logo: "🧠",
+    category: "Development",
+    website: "https://emergent.sh",
+  }, {
+    id: "qoder",
+    name: "Qoder",
+    description: "Agentic coding platform powered by AI — تفهم الكود الكامل في المشروع وتنفذ مهام برمجية end-to-end من خلال الأوامر النصية. تُمكّنك من تفويض ميزات البرمجة إلى وكيل ذكي يدير التعديلات عبر ملفات متعددة، إنشاء الاختبارات، وإدارة البيئة تلقائيًا.",
+    type: "Free",
+    logo: "🤖",
+    category: "Development",
+    website: "https://qoder.com",
+  },
+  {
+    id: "uizard-autodesigner",
+    name: "Uizard Autodesigner",
+    description: "AI-powered UI design generator .",
+    type: "Free",
+    logo: "🎨",
+    category: "Design / UI",
+    website: "https://uizard.io/autodesigner/",
+  }, {
+    id: "hedra",
+    name: "Hedra",
+    description: "AI-powered visual content creation platform that enables you to generate videos, images, and audio from your ideas quickly and with high quality.",
+    type: "Free",
+    logo: "🌌",
+    category: "Multimedia / Video",
+    website: "https://www.hedra.com",
+  }, {
+    id: "cluely",
+    name: "Cluely",
+    description: "Real-time AI meeting assistant that listens to your calls, reads your screen, and gives you smart suggestions, transcriptions, and follow-ups during live meetings.",
+    type: "Paid",
+    logo: "🧠",
+    category: "Productivity",
+    website: "https://cluely.com",
+  }, {
+    id: "traycer",
+    name: "Traycer",
+    description: "Plan-first AI coding assistant that turns high-level intents into detailed specs, hands them off to AI agents, and verifies generated code for quality and correctness.",
+    type: "Paid",
+    logo: "🧩",
+    category: "Development / Coding",
+    website: "https://traycer.ai",
+  }, {
+    id: "higgsfield",
+    name: "Higgsfield",
+    description: "AI‑native video reasoning platform for cinematic content — create professional, social‑media‑ready videos with controllable camera moves, avatars, and effects.",
+    type: "Paid",
+    logo: "🎥",
+    category: "Multimedia / Video",
+    website: "https://higgsfield.ai",
+  },
+  {
+    id: "kimi",
+    name: "Kimi",
+    description: "An advanced AI assistant powered by the Kimi K2 MoE model, capable of reasoning, coding, long-context understanding, and executing multi-step agentic tasks.",
+    type: "Trial",
+    logo: "🤖",
+    category: "AI Assistant / Agent",
+    website: "https://www.kimi.com",
+  }
+
+
+
+
+
+
+
+
 ]
