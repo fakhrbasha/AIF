@@ -201,7 +201,7 @@ export default function ToolsPage() {
                 placeholder="Search tools by name or description..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-14 pr-5 py-4 bg-white border-2 border-gray-200 focus:border-primary rounded-2xl outline-none transition-all duration-300 shadow-lg"
+                className="w-full pl-14 pr-5 py-4 bg-transparent border-2 border-gray-200 focus:border-primary rounded-2xl outline-none transition-all duration-300 shadow-lg"
               />
             </div>
           </div>
@@ -271,7 +271,7 @@ export default function ToolsPage() {
               transition={{ duration: 0.3 }}
               className="mb-12 overflow-hidden"
             >
-              <div className="bg-white border border-gray-200 rounded-2xl p-8 space-y-8">
+              <div className="bg-transparent border border-gray-200 rounded-2xl p-8 space-y-8">
                 {/* Categories Filter */}
                 <div>
                   <div className="flex items-center gap-2 mb-4">
@@ -382,7 +382,7 @@ export default function ToolsPage() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3 }}
-                className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-shadow"
+                className=" bg-transparent border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-shadow"
               >
                 <h3 className="text-xl font-bold mb-2">{tool.name}</h3>
                 <p className="text-gray-600 mb-4">{tool.description}</p>
@@ -393,7 +393,7 @@ export default function ToolsPage() {
                   <span className="text-sm text-gray-500">{tool.type}</span>
                 </div>
                 <a
-                  href={tool.website}
+                  href={`/tools/${tool.id}`}
                   className="mt-4 flex items-center gap-2 text-primary hover:text-primary"
                 >
                   Visit <ExternalLink className="w-4 h-4" />

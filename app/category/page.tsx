@@ -1115,14 +1115,14 @@ export default function CategoriesPage() {
                       <ArrowRight className="w-5 h-5" />
                     </motion.button>
                   </Link>
-                  <Link href="/tools">
+                  <Link href="/free">
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       className="px-8 py-4 bg-card hover:bg-muted border-2 border-border hover:border-primary/50 text-foreground rounded-xl font-bold shadow-xl transition-all duration-300 flex items-center gap-2"
                     >
                       <Search className="w-5 h-5" />
-                      Advanced Search
+                      Free Tools
                     </motion.button>
                   </Link>
                 </div>
