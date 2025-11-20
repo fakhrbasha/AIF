@@ -970,7 +970,7 @@ export default function CategoriesPage() {
                 },
                 { label: 'Total Tools', value: `${totalTools}+`, icon: Zap },
                 { label: 'Top Rated', value: '4.7★', icon: Star },
-                { label: 'Active Users', value: '50K+', icon: Users },
+                { label: 'Active Users', value: '400+', icon: Users },
               ].map((stat, i) => (
                 <motion.div
                   key={stat.label}
