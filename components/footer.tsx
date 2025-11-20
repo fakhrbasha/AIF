@@ -32,35 +32,24 @@ export function Footer() {
       { label: 'Contact', href: '/contact' },
       { label: 'Blog', href: '/blogs' },
     ],
-
-    legal: [
-      { label: 'Privacy Policy', href: '#' },
-      { label: 'Terms of Service', href: '#' },
-    ],
   };
 
   const socialLinks = [
     {
-      icon: Twitter,
-      href: '#',
-      label: 'Twitter',
-      color: 'hover:text-[#1DA1F2]',
-    },
-    {
       icon: Linkedin,
-      href: '#',
+      href: 'https://www.linkedin.com/in/fakhr-basha-19b489286/',
       label: 'LinkedIn',
       color: 'hover:text-[#0A66C2]',
     },
     {
       icon: Instagram,
-      href: '#',
+      href: 'https://www.instagram.com/jrfakhr/',
       label: 'Instagram',
       color: 'hover:text-[#E4405F]',
     },
     {
       icon: Github,
-      href: '#',
+      href: 'https://github.com/fakhrbasha',
       label: 'GitHub',
       color: 'hover:text-foreground',
     },
@@ -153,7 +142,7 @@ export function Footer() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="py-12 grid grid-cols-2 md:grid-cols-6 gap-8"
+          className="py-12 grid grid-cols-2 md:grid-cols-4 gap-6  justify-center items-center"
         >
           {/* Brand Section - 2 columns */}
           <motion.div variants={itemVariants} className="col-span-2">
@@ -245,24 +234,6 @@ export function Footer() {
           </motion.div>
 
           {/* Resources */}
-
-          {/* Legal */}
-          <motion.div variants={itemVariants}>
-            <h4 className="font-bold mb-4 text-foreground">Legal</h4>
-            <ul className="space-y-3">
-              {footerLinks.legal.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="group text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1"
-                  >
-                    <span>{link.label}</span>
-                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
         </motion.div>
 
         {/* Bottom Bar */}

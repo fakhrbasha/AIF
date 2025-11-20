@@ -15,6 +15,7 @@ import {
 import { AI_TOOLS } from '@/lib/ai-tools';
 import { Navigation } from '@/components/navigation';
 import { Footer } from '@/components/footer';
+import { StickyBannerDemo } from '@/components/sticky-nav';
 
 // Mock data - replace with your actual AI_TOOLS data
 
@@ -151,6 +152,7 @@ export default function ToolsPage() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <StickyBannerDemo />
       {/* Hero Section */}
       <div className="relative overflow-hidden border-b border-border">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-purple-500/5 to-background pointer-events-none" />

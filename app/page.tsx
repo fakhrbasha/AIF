@@ -221,8 +221,8 @@ export default function HomeCreative() {
               className="grid grid-cols-3 gap-8 pt-8 border-t border-border"
             >
               {[
-                { value: '150+', label: 'AI Tools' },
-                { value: '50K+', label: 'Active Users' },
+                { value: '600+', label: 'AI Tools' },
+                { value: '400+', label: 'Active Users' },
                 { value: '4.8★', label: 'Avg Rating' },
               ].map((stat, i) => (
                 <motion.div
@@ -602,7 +602,6 @@ export default function HomeCreative() {
         </motion.div>
       </section>
       {/* <AIToolChatbot /> */}
-      <ChatbotWidget />
 
       <Footer />
     </div>

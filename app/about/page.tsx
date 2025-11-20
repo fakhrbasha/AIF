@@ -216,7 +216,7 @@ export default function AboutPage() {
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
             <div className="relative h-[400px] rounded-3xl overflow-hidden border border-border bg-card">
               <Image
-                src="/logo.png"
+                src="/Logo.png"
                 alt="AI Finder Overview"
                 fill
                 className="object-contain p-8 group-hover:scale-105 transition-transform duration-500"
@@ -235,8 +235,8 @@ export default function AboutPage() {
           className="grid grid-cols-2 md:grid-cols-4 gap-8"
         >
           {[
-            { value: '400+', label: 'AI Tools' },
-            { value: '20+', label: 'Categories' },
+            { value: '600+', label: 'AI Tools' },
+            { value: '70+', label: 'Categories' },
             { value: '400+', label: 'Happy Users' },
             { value: '24/7', label: 'Updated' },
           ].map((stat, i) => (

@@ -34,7 +34,7 @@ export default function ChatbotWidget() {
             : 'rotate(0deg) scale(1)',
         }}
       >
-        {open ? '✖' : '🤖'}
+        {open ? '✖' : '🧠'}
       </button>
 
       {/* Chat Box */}

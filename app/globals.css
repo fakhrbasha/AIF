@@ -133,6 +133,9 @@
   p {
     @apply leading-relaxed;
   }
+  Button{
+    @apply cursor-pointer
+  }
 }
 ::-webkit-scrollbar {
   width: 20px;              

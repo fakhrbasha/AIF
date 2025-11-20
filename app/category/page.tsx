@@ -816,14 +816,14 @@ const CategoryCard = ({
               className="flex items-center justify-between group/btn"
               whileHover={{ x: 5 }}
             >
-              <span className="font-bold text-primary group-hover:text-primary transition-colors">
+              {/* <span className="font-bold text-primary group-hover:text-primary transition-colors">
                 Explore Category
-              </span>
+              </span> */}
               <motion.div
                 animate={isHovered ? { x: [0, 5, 0] } : {}}
                 transition={{ duration: 1, repeat: Infinity }}
               >
-                <ArrowRight className="w-5 h-5 text-primary group-hover/btn:translate-x-1 transition-transform duration-300" />
+                {/* <ArrowRight className="w-5 h-5 text-primary group-hover/btn:translate-x-1 transition-transform duration-300" /> */}
               </motion.div>
             </motion.div>
           </div>

@@ -5,6 +5,7 @@ import './globals.css';
 import ThemeProvider from '@/components/theme-provider';
 import { Roboto } from 'next/font/google';
 import Script from 'next/script';
+import ChatbotWidget from '@/components/chat';
 
 export const metadata = {
   title: 'AIF',
@@ -29,11 +30,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={montserrat.className}>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children}
+          <ChatbotWidget />
+        </ThemeProvider>
 
         <Analytics />
 
-        {/* ===== Chatbase Chatbot Script ===== */}
         <Script id="chatbase-config" strategy="afterInteractive">
           {`
     window.chatbaseConfig = {
